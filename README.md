@@ -27,15 +27,10 @@
   - Menú principal con accesos rápidos  
   - Formularios responsivos y botones animados  
 
-- **Almacenamiento y Persistencia**  
-  - PostgreSQL para guardar código fuente y direcciones  
-  - Scripts de extracción automáticos desde GitHub y Etherscan  
-  - Diseño modular: servicios separados para IA y Etherscan  
 
 - **Despliegue Fácil**  
   - Configuración con `.env`  
   - Compatible con Heroku, Vercel, Railway, etc.  
-  - Docker-ready (opcional)
 
 ---
 
@@ -52,17 +47,10 @@
   - [EJS](https://ejs.co/) para plantillas  
   - Diseño adaptado al estilo “cyber‑punk soft”  
 
-- **Base de datos:**  
-  - PostgreSQL  
-
 - **Integraciones IA:**  
   - OpenRouter GPT‑4 (`openai/gpt-4o`)  
   - OpenRouter DeepSeek (`deepseek/deepseek-chat`)  
   - Google Gemini 1.5 (`gemini-1.5-flash`)  
-
-- **APIs Blockchain:**  
-  - [Etherscan API](https://docs.etherscan.io/)  
-
 ---
 
 ## 🚀 Uso
