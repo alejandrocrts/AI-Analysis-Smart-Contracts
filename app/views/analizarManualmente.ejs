@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Análisis Manual de Vulnerabilidades</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="results-page">  <!-- usamos el mismo body pero no centramos el contenido con flex -->
+  <div class="container">
+    <h1 class="page-title">Análisis Manual de Vulnerabilidades</h1>
+
+    <form action="/contratos/analizar-manual" method="post" class="manual-form">
+      <div class="form-group">
+        <label for="codigo">Introduce el código Solidity:</label><br>
+        <textarea name="codigo" id="codigo" rows="15" class="code-input"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="proveedor">Selecciona el proveedor de análisis:</label><br>
+        <select name="proveedor" id="proveedor" class="select-input">
+          <option value="gpt4">OpenRouter GPT‑4</option>
+          <option value="deepseek">OpenRouter Deepseek</option>
+          <option value="gemini">Gemini</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Analizar Código</button>
+        <a href="/" class="btn btn-secondary">Volver a Inicio</a>
+      </div>
+
+      <p class="tip">Puedes usar <kbd>Ctrl+V</kbd> para pegar tu código directamente.</p>
+    </form>
+  </div>
+</body>
+</html>

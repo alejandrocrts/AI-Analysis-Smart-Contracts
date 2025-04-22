@@ -1,0 +1,227 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #f0f8ff, #e6e6fa); /* Fondo degradado suave - Modificado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333; /* Modificado a un gris más oscuro para mejor contraste */
+  text-align: center; /* Centrar el texto del body para la página de inicio */
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semitransparente - Modificado */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  width: 80%; /* Ancho para el contenedor en la página de inicio */
+  max-width: 600px; /* Ancho máximo para el contenedor */
+  text-align: center; /* Asegurar que el texto dentro del contenedor esté centrado */
+}
+
+h1 {
+  color: #2c3e50; /* Azul oscuro para el título - Modificado */
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos que ya tenías para label - los mantenemos */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Estilos que ya tenías para input - los mantenemos */
+input[type="text"] {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 350px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+body.results-page {
+  /* anulamos el centering global */
+  display: block !important;
+  text-align: left !important;
+  padding: 40px 0;
+}
+
+body.results-page .container {
+  /* dejamos el contenedor centrado horizontalmente pero no en flex */
+  display: block !important;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: left !important;
+}
+
+body.results-page .analysis-title {
+  /* título arriba centrado */
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Estilos base para los botones que ya tenías - los mantenemos */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  margin: 5px;
+}
+
+/* Estilos para el botón primario que ya tenías - los mantenemos */
+.btn-primary {
+  background-color: #007BFF;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Estilos para el botón secundario que ya tenías - los mantenemos */
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+  transform: scale(1.05);
+}
+
+/* Estilos para el tip que ya tenías - los mantenemos */
+.tip {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* Estilos para el icono que ya tenías - los mantenemos */
+.icon {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Nuevos estilos para la lista de opciones en la página de inicio */
+p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+ul li a {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 2px solid #3498db; /* Azul más vivo para el borde de los enlaces */
+  border-radius: 8px;
+  color: #3498db;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li a:hover {
+  background-color: #3498db;
+  color: white;
+  box-shadow: 0 5px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Sólo para la página de análisis manual */
+.manual-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.code-input {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 0.9em;
+  resize: vertical;
+}
+
+.select-input {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 260px;
+}
+
+.page-title {
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.results-page .container {
+  text-align: center;
+}
+
+/* Sólo para la página de inicio */
+.home-page .container {
+  max-width: 600px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-group .btn {
+  min-width: 220px;
+  font-size: 1.1em;
+}
+
+.button-group .icon {
+  margin-right: 8px;
+}
+
