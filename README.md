@@ -1,6 +1,6 @@
 # 🔐 Ethereum Smart‑Contract Analyzer
 
-> Un panel web interactivo para extraer, inspeccionar y analizar vulnerabilidades de smart‑contracts en Ethereum usando IA (GPT‑4, DeepSeek, Gemini) y Etherscan.
+> Una app web interactiva para extraer, inspeccionar y analizar vulnerabilidades de smart‑contracts en Ethereum usando IA (GPT‑4, DeepSeek, Gemini) y Etherscan.
 
 ---
 
