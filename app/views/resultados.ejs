@@ -7,43 +7,47 @@
 </head>
 <body class="results-page">
   <div class="container">
-    <!-- Título centrado en la parte superior -->
     <h2 class="analysis-title">Resultados del Análisis</h2>
 
     <% resultados.forEach(item => { %>
       <div class="result-item">
-        <% if (analisisVuln) { %>
-          <!-- Mostrar análisis de vulnerabilidades -->
-          <h3><i class="icon">🛡️</i> Análisis de Vulnerabilidades</h3>
-          <div class="analysis">
-            <%- item.analisisVulnerabilidades
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                  .replace(/\n/g, '<br>') %>
-          </div>
-        <% } else { %>
-          <!-- Mostrar estado del contrato -->
+
+        <% if (analisisVuln === false || analisisVuln === "ambos") { %>
+          <!-- Mostrar información del contrato -->
           <h3><i class="icon">📄</i> Información del Contrato</h3>
           <p><strong>Dirección:</strong> <code><%= item.contractAddress || item.direccion %></code></p>
           <ul class="contract-info">
             <% for (let [clave, valor] of Object.entries(item)) {
-                 if (["contractAddress", "direccion"].includes(clave)) continue;
+                 if (["contractAddress", "direccion", "analisisVulnerabilidades", "creationBytecode", "ConstructorArguments"].includes(clave)) continue;
                  if (valor && typeof valor === 'object') {
-                   // Desempacar objetos anidados
                    for (let [subclave, subvalor] of Object.entries(valor)) {
+                     if (["creationBytecode", "ConstructorArguments"].includes(subclave)) continue;
                      if (subvalor !== undefined && subvalor !== null && String(subvalor).trim() !== '') { %>
               <li><strong><%= subclave %>:</strong> <%= subvalor %></li>
-            <%       }
+            <%     }
                    }
                  } else if (valor !== undefined && valor !== null && String(valor).trim() !== '') { %>
               <li><strong><%= clave %>:</strong> <%= valor %></li>
             <% } } %>
           </ul>
+          
+          
         <% } %>
+
+        <% if (analisisVuln === true || analisisVuln === "ambos") { %>
+          <!-- Mostrar análisis de vulnerabilidades -->
+          <h3><i class="icon">🛡️</i> Análisis de Vulnerabilidades</h3>
+          <div class="analysis">
+            <%- (item.analisisVulnerabilidades || "Sin resultado")
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\n/g, '<br>') %>
+          </div>
+        <% } %>
+
         <hr>
       </div>
     <% }) %>
 
-    <!-- Botones de navegación -->
     <div class="navigation">
       <a href="javascript:history.back()" class="btn btn-secondary">← Página Anterior</a>
       <a href="/" class="btn btn-primary">Inicio</a>
@@ -51,4 +55,3 @@
   </div>
 </body>
 </html>
-
