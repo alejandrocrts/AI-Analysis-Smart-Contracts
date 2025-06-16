@@ -125,7 +125,6 @@ async function getContractCreation(addresses) {
   }
 }
 
-// NUEVA FUNCIÓN: Analiza el estado de un contrato a partir de una dirección introducida manualmente.
 async function analyzeContractState(manualAddress) {
   const info = await getContractInfo(manualAddress);
   const balance = await getContractBalance(manualAddress);

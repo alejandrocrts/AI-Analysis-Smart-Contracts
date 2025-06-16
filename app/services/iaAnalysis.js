@@ -17,8 +17,8 @@ async function analizarVulnerabilidadesGPT4(codigo) {
     try {
       const response = await azureClientOpenAI.chat.completions.create({
         messages: [
-          { role: "system", content: "Eres un experto en seguridad de smart contracts. Identifica vulnerabilidades y sugiere mitigaciones. Analiza el siguiente código Solidity para detectar vulnerabilidades y proporciona recomendaciones breves y precisas para mitigarlas." },
-          { role: "user", content: `Código Solidity:\n${codigo}` }
+          { role: "system", content: "Actúa como un auditor experto en seguridad de contratos inteligentes escritos en Solidity. "},
+          { role: "user", content: `Quiero que realices un análisis completo de seguridad del siguiente código fuente de un contrato inteligente. El objetivo es detectar vulnerabilidades reales, entender el riesgo asociado y obtener recomendaciones de mitigación. 1. Enumera de manera clara cada vulnerabilidad encontrada. 2. Para cada una, proporciona: - Clasificación de la severidad según el estándar de seguridad en contratos inteligentes (Critical, Major, Medium, Minor, Informational). - Descripción técnica de la vulnerabilidad.- Ubicación o fragmento de código afectado (si es posible). - Riesgo que representa en el entorno de la red Ethereum. - Propuesta de mitigación específica según buenas prácticas de seguridad en Solidity.Si no detectas vulnerabilidades relevantes, proporciona una breve explicación justificando por qué el contrato es considerado seguro según las prácticas actuales y la versión del compilador utilizada. Evita respuestas genéricas, ambiguas o poco fundamentadas.No inventes vulnerabilidades si no están presentes en el código.Es importante que seas crítico y técnico, no asumas que por ser código común es seguro.Contexto adicional:Este análisis se utilizará para contrastar resultados con auditorías profesionales publicadas en Etherscan, por lo tanto, la precisión, claridad y profesionalidad del análisis son clave. El código que vas a analizar pertenece a contratos ya desplegados y auditados, por lo que debes prestar especial atención a detalles que en otras circunstancias podrían pasarse por alto. Aquí el código Solidity a analizar:\n${codigo}` }
         ],
         max_tokens: 8192,
         model: modelName,
@@ -41,11 +41,11 @@ async function analizarVulnerabilidadesDeepseek(codigo) {
 
   const systemMsg = {
     role:    'system',
-    content: 'Eres un español experto en seguridad de smart contracts. Identifica vulnerabilidades y sugiere mitigaciones. Divide bien las vulnerabilidades para que sea visual'
+    content: 'Actúa como un auditor experto en seguridad de contratos inteligentes escritos en Solidity. '
   };
   const userMsg = {
     role:    'user',
-    content: `Analiza el siguiente código Solidity para detectar vulnerabilidades y proporciona recomendaciones breves y precisas para mitigarlas.\n\n${codigo}`
+    content: `Quiero que realices un análisis completo de seguridad del siguiente código fuente de un contrato inteligente. El objetivo es detectar vulnerabilidades reales, entender el riesgo asociado y obtener recomendaciones de mitigación. 1. Enumera de manera clara cada vulnerabilidad encontrada. 2. Para cada una, proporciona: - Clasificación de la severidad según el estándar de seguridad en contratos inteligentes (Critical, Major, Medium, Minor, Informational). - Descripción técnica de la vulnerabilidad.- Ubicación o fragmento de código afectado (si es posible). - Riesgo que representa en el entorno de la red Ethereum. - Propuesta de mitigación específica según buenas prácticas de seguridad en Solidity.Si no detectas vulnerabilidades relevantes, proporciona una breve explicación justificando por qué el contrato es considerado seguro según las prácticas actuales y la versión del compilador utilizada. Evita respuestas genéricas, ambiguas o poco fundamentadas.No inventes vulnerabilidades si no están presentes en el código.Es importante que seas crítico y técnico, no asumas que por ser código común es seguro.Contexto adicional:Este análisis se utilizará para contrastar resultados con auditorías profesionales publicadas en Etherscan, por lo tanto, la precisión, claridad y profesionalidad del análisis son clave. El código que vas a analizar pertenece a contratos ya desplegados y auditados, por lo que debes prestar especial atención a detalles que en otras circunstancias podrían pasarse por alto. Aquí el código Solidity a analizar:\n${codigo}`
   };
 
   try {
@@ -76,12 +76,19 @@ async function analizarVulnerabilidadesDeepseek(codigo) {
 async function analizarVulnerabilidadesGemini(codigo) {
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro-exp-03-25"});
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro-preview-05-06"});
   
-  const prompt = `Eres un experto en seguridad de smart contracts. Identifica vulnerabilidades y sugiere mitigaciones.
- Analiza el siguiente código Solidity para detectar vulnerabilidades y proporciona recomendaciones breves y precisas para mitigarlas.
+  const prompt = `Actúa como un auditor experto en seguridad de contratos inteligentes escritos en Solidity. 
+  Quiero que realices un análisis completo de seguridad del siguiente código fuente de un contrato inteligente. 
+  El objetivo es detectar vulnerabilidades reales, entender el riesgo asociado y obtener recomendaciones de mitigación. 
+  1. Enumera de manera clara cada vulnerabilidad encontrada. 2. Para cada una, proporciona: - Clasificación de la severidad según el estándar de seguridad en contratos inteligentes (Critical, Major, Medium, Minor, Informational). 
+  - Descripción técnica de la vulnerabilidad.- Ubicación o fragmento de código afectado (si es posible). - Riesgo que representa en el entorno de la red Ethereum. 
+  - Propuesta de mitigación específica según buenas prácticas de seguridad en Solidity.Si no detectas vulnerabilidades relevantes, proporciona una breve explicación justificando por qué el contrato es considerado seguro según las prácticas actuales 
+  y la versión del compilador utilizada. Evita respuestas genéricas, ambiguas o poco fundamentadas.No inventes vulnerabilidades si no están presentes en el código.
+  Es importante que seas crítico y técnico, no asumas que por ser código común es seguro.Contexto adicional: Este análisis se utilizará para contrastar resultados con auditorías profesionales publicadas en Etherscan, por lo tanto, 
+  la precisión, claridad y profesionalidad del análisis son clave. El código que vas a analizar pertenece a contratos ya desplegados y auditados, por lo que debes prestar especial atención a detalles que en otras circunstancias podrían pasarse por alto. 
+  Aquí el código Solidity a analizar:\n
 
-Código:
 ${codigo}`;
   try{
     const result = await model.generateContent(prompt);
