@@ -131,7 +131,7 @@ router.post('/analizar-lote', upload.single('archivo'), async (req, res) => {
       });
 
     } catch (err) {
-      console.error(`❌ Error procesando ${direccion}:`, err);
+      console.error(` Error procesando ${direccion}:`, err);
       resultados.push({
         direccion,
         analisisVulnerabilidades: "Error interno al procesar esta dirección."
