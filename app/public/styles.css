@@ -1,33 +1,33 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #f0f8ff, #e6e6fa); /* Fondo degradado suave - Modificado */
+  background: linear-gradient(135deg, #f0f8ff, #e6e6fa); 
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  color: #333; /* Modificado a un gris más oscuro para mejor contraste */
-  text-align: center; /* Centrar el texto del body para la página de inicio */
+  color: #333;
+  text-align: center; 
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semitransparente - Modificado */
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
-  width: 80%; /* Ancho para el contenedor en la página de inicio */
-  max-width: 600px; /* Ancho máximo para el contenedor */
-  text-align: center; /* Asegurar que el texto dentro del contenedor esté centrado */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+  width: 80%; 
+  max-width: 600px;
+  text-align: center; 
 }
 
 h1 {
-  color: #2c3e50; /* Azul oscuro para el título - Modificado */
+  color: #2c3e50; 
   font-size: 2.5em;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Estilos que ya tenías para label - los mantenemos */
+
 label {
   display: block;
   margin-bottom: 10px;
@@ -35,7 +35,7 @@ label {
   color: #444;
 }
 
-/* Estilos que ya tenías para input - los mantenemos */
+
 input[type="text"] {
   padding: 12px;
   border: 2px solid #ddd;
@@ -46,14 +46,12 @@ input[type="text"] {
 }
 
 body.results-page {
-  /* anulamos el centering global */
   display: block !important;
   text-align: left !important;
   padding: 40px 0;
 }
 
 body.results-page .container {
-  /* dejamos el contenedor centrado horizontalmente pero no en flex */
   display: block !important;
   margin: 0 auto;
   max-width: 800px;
@@ -61,14 +59,12 @@ body.results-page .container {
 }
 
 body.results-page .analysis-title {
-  /* título arriba centrado */
   text-align: center;
   font-size: 2em;
   margin-bottom: 20px;
   color: #2c3e50;
 }
 
-/* Estilos base para los botones que ya tenías - los mantenemos */
 .btn {
   display: inline-block;
   padding: 12px 25px;
@@ -82,7 +78,6 @@ body.results-page .analysis-title {
   margin: 5px;
 }
 
-/* Estilos para el botón primario que ya tenías - los mantenemos */
 .btn-primary {
   background-color: #007BFF;
 }
@@ -92,7 +87,6 @@ body.results-page .analysis-title {
   transform: scale(1.05);
 }
 
-/* Estilos para el botón secundario que ya tenías - los mantenemos */
 .btn-secondary {
   background-color: #6c757d;
 }
@@ -102,21 +96,18 @@ body.results-page .analysis-title {
   transform: scale(1.05);
 }
 
-/* Estilos para el tip que ya tenías - los mantenemos */
 .tip {
   font-size: 0.9em;
   color: #777;
   margin-top: 20px;
 }
 
-/* Estilos para el icono que ya tenías - los mantenemos */
 .icon {
   margin-right: 8px;
   font-size: 1.2em;
   vertical-align: middle;
 }
 
-/* Nuevos estilos para la lista de opciones en la página de inicio */
 p {
   font-size: 1.1em;
   color: #555;
@@ -136,7 +127,7 @@ li {
 ul li a {
   display: inline-block;
   padding: 12px 25px;
-  border: 2px solid #3498db; /* Azul más vivo para el borde de los enlaces */
+  border: 2px solid #3498db; 
   border-radius: 8px;
   color: #3498db;
   font-size: 1em;
@@ -150,7 +141,6 @@ ul li a:hover {
   box-shadow: 0 5px 10px rgba(52, 152, 219, 0.3);
 }
 
-/* Sólo para la página de análisis manual */
 .manual-form {
   display: flex;
   flex-direction: column;
@@ -192,7 +182,6 @@ ul li a:hover {
   text-align: center;
 }
 
-/* Sólo para la página de inicio */
 .home-page .container {
   max-width: 600px;
   text-align: center;
