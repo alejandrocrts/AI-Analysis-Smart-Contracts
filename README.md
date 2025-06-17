@@ -48,7 +48,6 @@ Los resultados incluyen:
 ├── Scrapping
 │   ├── drivers/          # Chromedriver para Selenium
 │   └── scrap_etherscan.py# Script scraping Etherscan (con Cloudflare bypass)
-├── .env                  # Claves API (IGNORADO)
 ├── .gitignore            # Ignorar .env y otros archivos
 ├── README.md             # Este archivo
 ├── package.json          # Dependencias y configuración Node.js
@@ -70,6 +69,7 @@ cd ai-smart-contract-audit
 
 ```bash
 npm install
+pip install requests beautifulsoup4 python-dotenv selenium
 node server.js
 ```
 
